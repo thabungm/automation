@@ -1,6 +1,10 @@
+# sudo apt-get install scrot
 # This function takes snapshot of the sreen after configured Interval
-pathToSave = ~/Pictures/
+pathToSave="/home/thabung/Pictures/"
+timeIntervalSecs=10
+echo "The main folder is: $pathToSave "
 read -p "Folder Name: "  folderName
 mkdir -p $pathToSave$folderName
-
-while true; do scrot -d 5 '%Y-%m-%d-%H:%M:%S.png' -e 'mv $f $pathToSave'; done
+cd $pathToSave$folderName
+echo $pathToSave$folderName
+while true; do scrot -d $timeIntervalSecs '%Y-%m-%d-%H:%M:%S.png' -e 'mv $f $pathToSave$folderName'; done
